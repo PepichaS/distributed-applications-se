@@ -1,0 +1,61 @@
+﻿@model RentACar.Models.VehicleType
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="text-center">
+	<h1>Add</h1>
+	<h4>Vehicle Type</h4>
+</div>
+<hr />
+<div class="row d-flex justify-content-center align-items-center h-100">
+	<div class="col-lg-9 col-xl-7">
+		<div class="card rounded-3" style="background-color:#F0F2F5">
+			<div class="card-body p-4 p-md-5">
+				<form asp-action="Create">
+					<h4>Add a new vehicle type.</h4>
+					<hr />
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label asp-for="Name" class="control-label"></label>
+						<input asp-for="Name" class="form-control" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Description" class="control-label"></label>
+						<input asp-for="Description" class="form-control" />
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+					<button type="submit" class="btn btn-warning">Add</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+<style>
+	body {
+		margin: auto;
+		background-color: whitesmoke;
+		padding-bottom:75px;
+	}
+
+	.text-center > h4 {
+		margin: 0 auto;
+		text-align: center;
+		width: 100px;
+		color: whitesmoke;
+		border: 1px solid #292929;
+		padding: 5px;
+		border-radius: 10px;
+		background-color: #292929;
+	}
+</style>
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
